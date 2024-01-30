@@ -43,10 +43,10 @@ const Detail = (props) => {
             <img src="/images/play-icon-black.png" alt="" />
             <span>Play</span>
           </Player>
-
-
+          
+       
         </Controls>
-
+        
         <Description>{detailData.description}</Description>
       </ContentMeta>
     </Container>
@@ -187,11 +187,6 @@ const Player = styled.button`
     }
   }
 `;
-
-
-
-
-
 
 const Description = styled.div`
   line-height: 1.4;
