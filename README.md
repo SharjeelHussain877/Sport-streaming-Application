@@ -6,13 +6,13 @@ Clone the Repository:
 ## git clone <repository-url>
 Make changes 
 
-first you are suppose to check status where you hava made changeswith this command 👇
-##git status
+first you are suppose to check status where you hava made changes with this command 👇
+"git status"
 your modification will be shown with danger
 
-Add your changes and add after check status with this command ##git add .
+Add your changes and add after check status with this command #git add .
 
-Commit your changes now # git commit -m "Your descriptive commit message"
+Commit your changes now #git commit -m "Your descriptive commit message"
 
 Push your changes 
 ## git push origin main
