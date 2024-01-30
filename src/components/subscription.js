@@ -1,21 +1,13 @@
-import styled from "styled-components";
+import React from "react";
+import SubscriptionPage from "../components/subscription/body";
 
-const Subscription = () => {
-    
+function Subscription() {
   return (
-    <>  
-        <Form>
-            <h1>Kesa banaya!</h1>
-        </Form>
-    </> 
+    <>
+      <SubscriptionPage/>
+    </>
   );
-};
+}
 
 
-const Form = styled.div`
-  margin-top: 70px;
-    background-color: Red;
-    height: 200px;
-    width: 300px;
-`
 export default Subscription;
