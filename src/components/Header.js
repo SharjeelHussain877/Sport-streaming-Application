@@ -27,6 +27,7 @@ const Header = (props) => {
   const [value, setValue] = useState("");
   const [movies, setMatchingMovies] = useState();
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isDropDownVisible, setDropDownVisible] = useState(false);
 
   const movies1 = useSelector(selectRecommend);
   const movies2 = useSelector(selectOriginal);
@@ -87,6 +88,10 @@ const Header = (props) => {
       })
     );
   };
+  const handleClick = () => {
+    // Toggle the visibility of the DropDown on each click
+    setDropDownVisible(!isDropDownVisible);
+  };
 
   return (
     <>
@@ -130,14 +135,15 @@ const Header = (props) => {
                 <span>SEARCH</span>
               </a>
             </NavMenu>
-            <SignOut>
+            <SignOut isDropDownVisible={isDropDownVisible} onClick={handleClick}>
               <UserImg src={userPhoto} alt={userName} />
               <DropDown>
                 {/* <Rigester>Subscribe</Rigester> */}
+                <h3>Welcome</h3>
                 <Link to="/subscription">
-                  <Register>subscription</Register>
+                  <button>Register</button>
                 </Link>
-                <span onClick={handleAuth}>Sign out</span>
+                <button id="signout" onClick={handleAuth}>Sign out</button>
               </DropDown>
             </SignOut>
           </>
@@ -467,9 +473,32 @@ const DropDown = styled.div`
   padding: 10px;
   font-size: 14px;
   letter-spacing: 3px;
-  width: 100px;
-  /* opacity: 0; */
+  width: 150px;
+  justify-content: center;
   display: none;
+  text-align: center;
+
+  button {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100% ;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+  #signout{
+    background-color: darkred;
+    &:hover {
+      background-color: red;
+    }
+  }
+  
 `;
 
 const SignOut = styled.div`
@@ -487,13 +516,16 @@ const SignOut = styled.div`
     height: 100%;
   }
 
-  &:hover {
+  /* Remove the &:hover styles */
+
+  /* Add styles based on the state */
+  ${({ isDropDownVisible }) => isDropDownVisible && `
     ${DropDown} {
       /* opacity: 1; */
       display: block;
       transition-duration: 1s;
     }
-  }
+  `}
 `;
 
 export default Header;

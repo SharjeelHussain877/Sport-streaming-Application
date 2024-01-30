@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.container{
+  background-color: #040814;
+  font-family: 'Poppins', sans-serif;
+}
+
+#bg-img{
+    width: 100%;
+}
+.plan-div{
+    margin: 0px;
+    padding: 0px;
+    background: url("./home-background.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: auto;
+}
+#plan-head{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+  }
+.main-card-div{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+.card-div {
+  width: 300px !important;
+  height: 425px !important;
+  transition: transform 0.4s ease;
+  background-color: #2b3041;
+  color: #ffffff;
+  border-radius: 11px;
+  position: relative;
+}
+.card-div h3 {
+  padding-top: 5px;
+  padding-left: 20px;
+  font-weight: 400 !important;
+  font-size: small;
+}
+.card-div span {
+  margin-right: 5px;
+}
+.card-div:hover {
+  transform: scale(1.1);
+}
+/* .card-div:hover .topcard {
+  background-color: #0c0e16;
+} */
+
+.topcard {
+  background-color: #2b3041;
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px;
+  padding-top: 10px !important ;
+  color: white;
+  padding: 0%;
+  margin: 0%;
+  text-align: center;
+  color: white;
+  height: 140px;
+}
+
+.topcard h2 {
+  margin-top: 25px ;
+  margin-bottom: 20px !important;
+  background-color: #0c0e16;
+  font-size: 20px;
+}
+
+.select-plan-button {
+  opacity: 0; 
+  font-size: 10px ;
+  font-weight: 700;
+  position: absolute;
+  margin-bottom: 50px !important;
+  /* bottom: 20;  */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease; 
+  height: 35px;
+  width: 50%;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #0c0e16;
+  cursor: pointer;
+  border: none;
+}
+
+.card-div:hover .select-plan-button {
+  opacity: 1; 
+  box-shadow: 1px 1px 10px #2b3041;
+  margin-bottom: 50px !important;
+}
+
+.circle-checkmark {
+  background: darkred;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 50%;
+}
+.circle-checkmarkok {
+  background: darkgreen;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 50%;
+}
+@media (max-width: 1050px) {
+  .main-card-div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .card-div {
+    width: 45%; /* Adjust the width to fit two cards in a row */
+    margin: 10px;
+    margin-top: 30px ;
+  }
+  #plan-head{
+    font-size: 45px;
+    color: white;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-card-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-div {
+    width: 90%; /* Adjust the width to fit one card in a row */
+    margin-top: 30px ;
+  }
+  #plan-head{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+}
+
+  
