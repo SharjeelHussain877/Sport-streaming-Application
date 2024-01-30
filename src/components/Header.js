@@ -101,7 +101,7 @@ const Header = (props) => {
         </Logo>
         <HamburgerIcon onClick={() => setMenuOpen(!isMenuOpen)}>
           <img src="/images/hamburger.svg" height="30px" />
-        <img src="/images/logo.png" alt="sport" height="50px"/>
+          <img src="/images/logo.png" alt="sport" height="50px" />
         </HamburgerIcon>
         {!userName ? (
           <>
@@ -135,7 +135,10 @@ const Header = (props) => {
                 <span>SEARCH</span>
               </a>
             </NavMenu>
-            <SignOut isDropDownVisible={isDropDownVisible} onClick={handleClick}>
+            <SignOut
+              isDropDownVisible={isDropDownVisible}
+              onClick={handleClick}
+            >
               <UserImg src={userPhoto} alt={userName} />
               <DropDown>
                 {/* <Rigester>Subscribe</Rigester> */}
@@ -143,7 +146,9 @@ const Header = (props) => {
                 <Link to="/subscription">
                   <button>Register</button>
                 </Link>
-                <button id="signout" onClick={handleAuth}>Sign out</button>
+                <button id="signout" onClick={handleAuth}>
+                  Sign out
+                </button>
               </DropDown>
             </SignOut>
           </>
@@ -240,6 +245,11 @@ const Box = styled.div`
       border-radius: 10px;
       box-shadow: 0px 0px 5px #8a86ae;
       width: 300px;
+    }
+    @media (max-width: 546px) {
+    .searched-img {
+      display: none;
+    }  
     }
     .go-btn {
       padding: 10px 16px;
@@ -486,19 +496,18 @@ const DropDown = styled.div`
     margin: 5px 0;
     cursor: pointer;
     border-radius: 10px;
-    width: 100% ;
+    width: 100%;
 
     &:hover {
       background-color: #45a049;
     }
   }
-  #signout{
+  #signout {
     background-color: darkred;
     &:hover {
       background-color: red;
     }
   }
-  
 `;
 
 const SignOut = styled.div`
@@ -519,7 +528,9 @@ const SignOut = styled.div`
   /* Remove the &:hover styles */
 
   /* Add styles based on the state */
-  ${({ isDropDownVisible }) => isDropDownVisible && `
+  ${({ isDropDownVisible }) =>
+    isDropDownVisible &&
+    `
     ${DropDown} {
       /* opacity: 1; */
       display: block;

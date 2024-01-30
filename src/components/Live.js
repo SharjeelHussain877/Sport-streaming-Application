@@ -3,7 +3,7 @@ import VideoPlayer from './videoPlayer.js';
 
 const Live = () => {
   // HLS streaming link
-  const hlsStreamUrl = 'https://watchout-usea.streaming.media.azure.net/d2b5323a-aec4-4422-ae01-5552be5e7bbe/e593242e-8f21-4d42-8969-34d74fc6d279.ism/manifest(format=m3u8-cmaf)';
+  const hlsStreamUrl = 'https://watchout-usea.streaming.media.azure.net/b91816e0-8efe-49c0-8283-ac0075cb936e/80e25ad6-6b86-4e20-a66e-d394267977f5.ism/manifest(format=m3u8-cmaf)';
 
   return (
     <div>
