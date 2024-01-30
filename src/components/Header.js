@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import {
   selectUserName,
@@ -10,7 +10,6 @@ import {
   setSignOutState,
 } from "../features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom";
 import {
   selectRecommend,
   selectOriginal,
@@ -105,7 +104,7 @@ const Header = (props) => {
         </HamburgerIcon>
         {!userName ? (
           <>
-            <Login onClick={handleAuth}>Getting start</Login>
+            <Log onClick={handleAuth}>Getting start</Log>
           </>
         ) : (
           <>
@@ -185,7 +184,7 @@ const Header = (props) => {
                 <div>
                   <h3>{v.title}</h3>
                   <p>{v.description}</p>
-                  <Link to={`/detail/:id` + v.id}>
+                  <Link to={`/detail/` + v.id}>
                     <div>
                       <button
                         className="go-btn"
@@ -437,7 +436,7 @@ const HamburgerIcon = styled.div`
   }
 `;
 
-const Login = styled.a`
+const Log = styled.a`
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 8px 16px;
@@ -539,4 +538,4 @@ const SignOut = styled.div`
   `}
 `;
 
-export default Header;
+export {Log, Header};

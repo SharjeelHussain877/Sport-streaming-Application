@@ -1,13 +1,59 @@
 import styled from "styled-components";
+import {Log} from './Header'
+import { auth, provider } from "../firebase";
+import { useHistory} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLoginDetails,
+  setSignOutState,
+} from "../features/user/userSlice";
+
 
 const Login = (props) => {
+  const dispatch = useDispatch();
+  const userName = useSelector(selectUserName);
+  const history = useHistory();
+
+  const handleAuth = () => {
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
+  };
+
+  const setUser = (user) => {
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
+    );
+  };
+
   return (
     <Container>
       <Content>
         <CTA>
           <CTALogoOne src="/images/cta-logo-one.png" alt="" />
-          <SignUp>
-            GET ALL THERE</SignUp>
+          <Log onClick={handleAuth}>
+            GET ALL THERE</Log>
           <Description>
             Get Premier Access to Watch-Out for an additional fee
             with a subscription. As of 03/26/24, the price of Bundle will increase by $1.
@@ -70,22 +116,22 @@ const CTALogoOne = styled.img`
   width: 100%;
 `;
 
-const SignUp = styled.a`
-  font-weight: bold;
-  color: #f9f9f9;
-  background-color: #0063e5;
-  margin-bottom: 12px;
-  width: 100%;
-  letter-spacing: 1.5px;
-  font-size: 18px;
-  padding: 16.5px 0;
-  border: 1px solid transparent;
-  border-radius: 4px;
+// const Log = styled`
+//   font-weight: bold;
+//   color: #f9f9f9;
+//   background-color: #0063e5;
+//   margin-bottom: 12px;
+//   width: 100%;
+//   letter-spacing: 1.5px;
+//   font-size: 18px;
+//   padding: 16.5px 0;
+//   border: 1px solid transparent;
+//   border-radius: 4px;
 
-  &:hover {
-    background-color: #0483ee;
-  }
-`;
+//   &:hover {
+//     background-color: #0483ee;
+//   }
+// `;
 
 const Description = styled.p`
   color: hsla(0, 0%, 95.3%, 1);
