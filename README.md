@@ -17,4 +17,8 @@ Commit your changes now # git commit -m "Your descriptive commit message"
 Push your changes 
 ## git push origin main
 
+# git checkout "your branch name"
+now git push origin "branch name"
+else go to repos and create pull request
+
 #Ab ap ka Kam ho gaya hai....
