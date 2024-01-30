@@ -10,7 +10,7 @@ import {
   setSignOutState,
 } from "../features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import {
   selectRecommend,
   selectOriginal,
@@ -113,22 +113,22 @@ const Header = (props) => {
                 <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
                 <span>Live</span>
               </Link>
-              <Link>
+              <a>
                 <img src="/images/original-icon.svg" alt="ORIGINALS" />
                 <span>ORIGINALS</span>
-              </Link>
-              <Link>
+              </a>
+              <a>
                 <img src="/images/movie-icon.svg" alt="MOVIES" />
                 <span>MOVIES</span>
-              </Link>
-              <Link>
+              </a>
+              <a>
                 <img src="/images/series-icon.svg" alt="SERIES" />
                 <span>SERIES</span>
-              </Link>
-              <Link onClick={() => setState(!isTrue)}>
+              </a>
+              <a onClick={() => setState(!isTrue)}>
                 <img src="/images/search-icon.svg" alt="SEARCH" />
                 <span>SEARCH</span>
-              </Link>
+              </a>
             </NavMenu>
             <SignOut>
               <UserImg src={userPhoto} alt={userName} />
@@ -174,7 +174,7 @@ const Header = (props) => {
                 <div>
                   <h3>{v.title}</h3>
                   <p>{v.description}</p>
-                  <Link to={`/detail/` + v.id}>
+                  <Link to={`/detail/:id` + v.id}>
                     <div>
                       <button
                         className="go-btn"
