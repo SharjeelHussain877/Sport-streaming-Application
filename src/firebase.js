@@ -24,5 +24,5 @@ try {
   console.error("Error initializing Firebase:", error);
 }
 
-export { auth, provider, storage };
+export { auth, provider, storage, firebaseConfig };
 export default db;
